@@ -1,0 +1,10 @@
+{
+	"type":"enterprise-touch", 
+	"screens", [
+		{ 
+			"name": "ASNWorkstation",
+			"menu-item-key": "asn-workstation",
+			"URL": "ws-asn.html" 
+		}		
+	]
+}

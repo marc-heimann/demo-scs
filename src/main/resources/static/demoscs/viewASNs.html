@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Swisslog SCS Demo</title>
+	<link rel="stylesheet" href="./css/main.css">	
+</head>
+
+<body id="viewASNsBody" class="light">
+
+	<main class="container">
+
+	</main>
+	<button type="button" id="reloadButton">Reload</button>
+	<br>
+	<table style="width:70%" frame=border rules =all id= "outputTable">
+		<tr>
+		    <th colspan="1" scope="colgroup">asnId</th>
+		    <th colspan="1" scope="colgroup">purchaseOrderNumber</th>
+		    <th colspan="1" scope="colgroup">shipNoticeNumber</th>
+		    <th colspan="6" scope="colgroup">destinationLocation</th>
+		    <th colspan="2" scope="colgroup">supplier</th>
+		    <th colspan="1" scope="colgroup">shipDate</th>
+		    <th colspan="1" scope="colgroup">deliveryDate</th>
+		    <th colspan="1" scope="colgroup">skuIds</th>
+		  </tr>
+		  <tr>
+		    <th scope="col"></th>
+		    <th scope="col"></th>
+		    <th scope="col"></th>
+		    <th scope="col">country</th>
+		    <th scope="col">state</th>
+		    <th scope="col">city</th>
+		    <th scope="col">street</th>
+		    <th scope="col">number</th>
+		    <th scope="col">zipCode</th>
+		    <th scope="col">id</th>
+		    <th scope="col">name</th>
+		    <th scope="col"></th>
+		    <th scope="col"></th>
+		    <th scope="col"></th>
+		  </tr>
+		  <tr>
+		  	<th>
+		  		<input class="searchInput" type="number" name="asnId" id="asnId" style="width: 50px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="number" name="pon" id="pon" style="width: 50px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="number" name="snn" id="snn" style="width: 50px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="text" name="destCountry" id="destCountry" style="width: 100px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="text" name="destState" id="destState" style="width: 100px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="text" name="destCity" id="destCity" style="width: 100px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="number" name="destZip" id="destZip" style="width: 70px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="text" name="destStreet" id="destStreet" style="width: 100px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="text" name="destNumber" id="destNumber" style="width: 50px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="number" name="supId" id="supId" style="width: 50px;">
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="text" name="supName" id="supName" style="width: 100px;">
+		  	</th>
+		  	<th>
+		  	
+		  	</th>
+		  	<th>
+		  	
+		  	</th>
+		  	<th>
+		  		<input class="searchInput" type="number" name="skuIds" id="skuIds" style="width: 50px;">
+		  	</th>
+		</tr>
+	</table>
+	<label id="errorLabel"></label>
+</body>
+<script src="./js/rest.js" id="rest"></script>
+</html>

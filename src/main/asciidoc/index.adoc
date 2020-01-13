@@ -1,0 +1,24 @@
+:description: This document illustrates the concepts of a self contained system.
+:organization: Swisslog
+:doctype: book
+:toc: left
+:toc-title: Table of Contents
+:toclevels: 5
+:sectnumlevels: 8
+:sectnums:
+:icons: font
+
+
+= Swisslog Demo SCS
+
+image::images/swisslog.png[Swisslog, 25%, align="right"]
+image::images/scs.png[Self Contained Systems, 50%]
+
+Author: <marc.heimann@swisslog.com>
+
+Last update: {docdate}
+
+
+include::chapters/introduction_and_goals.adoc[]
+include::chapters/prerequisites.adoc[]
+include::chapters/rest_api.adoc[]

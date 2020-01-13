@@ -1,0 +1,52 @@
+[[section-rest-api]]
+== REST API Documentation
+
+=== Requesting an Advanced Shipping Notice by its identifier
+
+==== Introduction
+The API endpoint provides functionality to acces a specific known advanced shipping notice. You have to pass an advanced shipping notice id.
+
+==== Overview
+Whenever you want to receive an ASN, you can use this API endpoint to do so. You probably got the ID of a specific ASN due to a business fact that was announced to the system. This announced business fact has carried the id you use for this request.
+
+==== Authentication
+Authentication against the OpenID Connect provider must be done already otherwise the service will not react in any way.
+
+==== Error Codes
+So far no application specific error code has been defined.
+Please refer to: https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html 
+
+==== Rate limit
+As this service is being executed within a container orchestration environment. A new request will spawn another instance. So it might take a few millis before your response comes in.
+
+
+==== Example requests
+
+===== GET localhost:80/advancedShippingNotice/1
+Asks the Self-Contained System to provide the details for the ASN with asnId 1.
+You can just start the SwisslogDemoSCS and execute the request by filling it into the address bar of your browser or by using https://www.getpostman.com/downloads/.
+
+====== Response
+[source,json]
+{
+    "asnId": 1,
+    "purchaseOrderNumber": 2,
+    "shipNoticeNumber": 4,
+    "destinationLocation": {
+        "country": "Germany",
+        "state": "NRW",
+        "city": "Dortmund",
+        "street": "Martin-Schmisser-Weg",
+        "zipCode": "44227",
+        "number": "13a"
+    },
+    "supplier": {
+        "id": 1,
+        "name": "The Supplier"
+    },
+    "shipDate": 1551950375599,
+    "deliveryDate": 0,
+    "skuIds": [
+        2
+    ]
+}

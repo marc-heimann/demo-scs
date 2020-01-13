@@ -1,0 +1,26 @@
+apiVersion: v1
+name: swisslog-demo-scs
+description: This application deals with Advanced Shipping Notices, it provides endpoints to post new ASNs, to fetch all ASNs or to query an ASN by its name.
+version: ${project.version}
+categories:
+  - SynQ X
+  - Inbound Service
+events:
+  - NEW_ASN_RECEIVED
+appVersion: ${project.version}
+keywords:
+  - Inbound
+  - Advanced Shipping Notice
+  - ASN
+  - Stock Keeping Unit
+  - SKU
+maintainers:
+  - name: Marc Heimann 
+    email: marc.heimann@swisslog.com
+  - name: Maximilian Grobe 
+    email: maximilian.grobe@swisslog.com
+home: http://10.49.145.139:8090/display/SLSCS/DEMO+SCS
+sources:
+  - http://gitlab.swisslog.net/g7heimm/swisslog-demo-scs.git
+icon: https://www.swisslog.com/-/media/swisslog/images/logistics-warehouse-distribution-automation/software/synq/synq-wms_header.jpg
+#icon: https://www.swisslog.com/-/media/swisslog/images/system/swisslog-logo-small.png
