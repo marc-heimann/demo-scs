@@ -73,7 +73,7 @@ podTemplate(
 		}
 		
 		stage('Docker Push Nightly') {
-	      withCredentials([usernamePassword(credentialsId: 'docker-nightly', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+	      withCredentials([usernamePassword(credentialsId: 'heimann-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 	      	container('docker') {
 		        sh "docker login -u ${USERNAME} -p ${PASSWORD} http://${containerRegistry}"
 		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
