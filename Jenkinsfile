@@ -12,7 +12,7 @@ podTemplate(
 	node(POD_LABEL) {
 	
 		stage('Initialize'){
-			env.repositoryName = "vanderlande"
+			env.repositoryName = "heimann"
 			env.deliverableName = "demo-scs"
 			env.containerRegistry = "heimann"
 			env.dockerHome = "/var/run/docker.sock"
