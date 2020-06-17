@@ -50,7 +50,7 @@
     	<chartName>demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
 
-    	<chartmuseumUrl>51.105.96.95:8080</chartmuseumUrl>
+    	<chartmuseumUrl>http://51.105.96.95:8080/</chartmuseumUrl>
 	</properties>
 
 	<dependencies>
