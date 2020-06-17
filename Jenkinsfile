@@ -15,6 +15,7 @@ podTemplate(
 			env.repositoryName = "vanderlande"
 			env.deliverableName = "demo-scs"
 			env.containerRegistry = "heimann"
+			env.dockerHome = "/var/run/docker.sock"
 			env.dockerDaemonURL = "tcp://10.49.145.110:2375"
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
 		}
