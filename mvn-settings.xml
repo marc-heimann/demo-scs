@@ -8,22 +8,17 @@
     <server>
       <id>nexus-snapshots</id>
       <username>nexusdeployer</username>
-      <password>swisslog</password>
+      <password>vanderlande</password>
     </server>
     <server>
       <id>nexus-releases</id>
       <username>releasedeployer</username>
-      <password>swisslog</password>
-    </server>
-    <server>
-      <id>gitlab.swisslog.net</id>
-      <username>jenkins</username>
-      <password>swisslog</password>
+      <password>vanderlande</password>
     </server>
     <server>
       <id>confluence_server</id>
-      <username>documentationpublisher</username>
-      <password>swisslog</password>
+      <username>documentation-publisher</username>
+      <password>vanderlande</password>
     </server>
   </servers>
 
@@ -31,7 +26,7 @@
     <mirror>
       <id>central</id>
       <name>central</name>
-      <url>http://10.49.145.193:8080/repository/maven-group/</url>
+      <url>http://52.143.0.103:8080/repository/maven-group/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
