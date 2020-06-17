@@ -12,9 +12,9 @@ podTemplate(
 	node(POD_LABEL) {
 	
 		stage('Initialize'){
-			env.repositoryName = "sl"
-			env.deliverableName = "swisslog-demo-scs"
-			env.containerRegistry = "10.49.145.193:8090"
+			env.repositoryName = "vanderlande"
+			env.deliverableName = "demo-scs"
+			env.containerRegistry = "heimann"
 			def dockerHome = tool 'docker'
 			env.dockerDaemonURL = "tcp://10.49.145.110:2375"
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
@@ -37,17 +37,20 @@ podTemplate(
 			}
 	    }
 	    
+	    /*
 	    stage('Execute Unit Tests & SonarQube') {
 	    	container('maven') {		    
 			    sh "mvn clean test sonar:sonar -Dsonar.projectKey=SCSDEMO -Dsonar.host.url=http://sonarqube-sonarqube:9000 -Dsonar.login=1ab7d99728fd6cb3c77444a32e3785d147208e2d -Pbuild"		    		
 			}
 	    }    
 	    
+	    
 	    stage('Build & Publish Documentation') {
 	    	container('maven') {		    
 			    sh "mvn clean verify -Pdocumentation"
 			} 
 	    }
+	    */
 	    
 	    stage('Deploy Java Artifact') {
 	    	container('maven') {		    

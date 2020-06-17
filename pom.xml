@@ -7,11 +7,11 @@
 		<version>2.1.1.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.swisslog</groupId>
-	<artifactId>SwisslogDemoSCS</artifactId>	
+	<groupId>com.vanderlande</groupId>
+	<artifactId>DemoSCS</artifactId>	
 	<version>0.0.59-SNAPSHOT</version>
-	<name>SwisslogDemoSCS</name>
-	<description>Demo project for Swisslog to demonstrate CloudNative Computing</description>
+	<name>DemoSCS</name>
+	<description>Demo project to demonstrate CloudNative Computing</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
 		<docker.repository>heimann</docker.repository>
-		<imageName>sl-demo-scs</imageName>
+		<imageName>demo-scs</imageName>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
@@ -46,7 +46,7 @@
     	<cucumberTestReportFolder>docs</cucumberTestReportFolder> 
     	<org.bsc.maven.confluence.reporting.version>6.3.2</org.bsc.maven.confluence.reporting.version>
     	
-    	<chartName>swisslog-demo-scs</chartName>
+    	<chartName>demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
     	 	
 	</properties>
@@ -649,13 +649,13 @@
 	</distributionManagement>
 	
 	<organization>
-		<name>Swisslog </name>
-		<url>www.swisslog.com</url>
+		<name>Vanderlande</name>
+		<url>vanderlande</url>
 	</organization>
 	<scm>		
-		<developerConnection>scm:git:http://gitlab.swisslog.net/g7heimm/swisslog-demo-scs.git</developerConnection>
-		<connection>scm:git:http://gitlab.swisslog.net/g7heimm/swisslog-demo-scs.git</connection>
+		<developerConnection>scm:git:http://github.com:marc-heimann/demo-scs.git</developerConnection>
+		<connection>scm:git:https://github.com:marc-heimann/demo-scs.git</connection>
 		<tag>HEAD</tag>
-		<url>http://gitlab.swisslog.net</url>
+		<url>http://github.com</url>
 	</scm>
 </project>
