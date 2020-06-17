@@ -49,7 +49,8 @@
     	
     	<chartName>demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
-    	 	
+
+    	<chartmuseumUrl>http://chartmuseum-chartmuseum:8080</chartmuseumUrl>
 	</properties>
 
 	<dependencies>
@@ -249,7 +250,7 @@
 			      <configuration>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
-			        <chartRepoUrl>http://my-chartmuseum-chartmuseum:8080</chartRepoUrl>
+			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
 			        <helmVersion>2.13.0</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
@@ -330,7 +331,7 @@
 			      <configuration>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
-			        <chartRepoUrl>http://my-chartmuseum-chartmuseum:8080</chartRepoUrl>
+			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
 			        <helmVersion>2.13.0</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
