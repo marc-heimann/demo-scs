@@ -1,11 +1,11 @@
-# Default values for swisslog-demo-scs.
+# Default values for vanderlande-demo-scs.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: container.swisslog.net:30056/sl/swisslog-demo-scs
+  repository: container.vanderlande.net:30056/sl/swisslog-demo-scs
   tag: latest
   pullPolicy: Always
   imagePullSecret: nightly-regcred

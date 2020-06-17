@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "swisslog-demo-scs.fullname" . }}
+  name: {{ include "demo-scs.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
     app.kubernetes.io/name: {{ $.Chart.Name }}
@@ -15,18 +15,18 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "swisslog-demo-scs.name" . }}
+      app.kubernetes.io/name: {{ include "demo-scs.name" . }}
       app.kubernetes.io/instance: {{ .Release.Name }}      
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "swisslog-demo-scs.name" . }}
-        helm.sh/chart: {{ include "swisslog-demo-scs.chart" . }}
+        app.kubernetes.io/name: {{ include "demo-scs.name" . }}
+        helm.sh/chart: {{ include "demo-scs.chart" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/managed-by: {{ .Release.Service }}
-        app.kubernetes.io/part-of: {{ include "swisslog-demo-scs.name" . }}
+        app.kubernetes.io/part-of: {{ include "demo-scs.name" . }}
         app.kubernetes.io/version: ${project.version}
-        app: {{ include "swisslog-demo-scs.fullname" . }}      
+        app: {{ include "demo-scs.fullname" . }}      
     spec:
       imagePullSecrets: 
         - name: {{ .Values.image.imagePullSecret }}

@@ -1,5 +1,5 @@
 :description: This document illustrates the concepts of a self contained system.
-:organization: Swisslog
+:organization: Vanderlande
 :doctype: book
 :toc: left
 :toc-title: Table of Contents
@@ -9,12 +9,12 @@
 :icons: font
 
 
-= Swisslog Demo SCS
+= Vanderlande Demo SCS
 
-image::images/swisslog.png[Swisslog, 25%, align="right"]
+image::images/vanderlande.png[Vanderlande, 25%, align="right"]
 image::images/scs.png[Self Contained Systems, 50%]
 
-Author: <marc.heimann@swisslog.com>
+Author: <marc.heimann@vanderlande.com>
 
 Last update: {docdate}
 

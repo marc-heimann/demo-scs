@@ -28,9 +28,7 @@ public class DemoSCSSteps {
 
 	private String jsonInputString;
 	private String apiVersion = "v1";
-	private String serverUri = "http://asn.sl-application/"+apiVersion+"/asns/";	
-	
-	//private String serverUri = "http://cicd.swisslog.net:32545/asns/";
+	private String serverUri = "http://asn.vi-application/"+apiVersion+"/asns/";	
 	
 	@Before
 	public void before() {	

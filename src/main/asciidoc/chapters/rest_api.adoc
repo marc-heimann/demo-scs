@@ -24,7 +24,7 @@ As this service is being executed within a container orchestration environment. 
 
 ===== GET localhost:80/advancedShippingNotice/1
 Asks the Self-Contained System to provide the details for the ASN with asnId 1.
-You can just start the SwisslogDemoSCS and execute the request by filling it into the address bar of your browser or by using https://www.getpostman.com/downloads/.
+You can just start the VanderlandeDemoSCS and execute the request by filling it into the address bar of your browser or by using https://www.getpostman.com/downloads/.
 
 ====== Response
 [source,json]
@@ -36,9 +36,9 @@ You can just start the SwisslogDemoSCS and execute the request by filling it int
         "country": "Germany",
         "state": "NRW",
         "city": "Dortmund",
-        "street": "Martin-Schmisser-Weg",
+        "street": "Joseph-von-Frainhofer Strasse",
         "zipCode": "44227",
-        "number": "13a"
+        "number": "23"
     },
     "supplier": {
         "id": 1,

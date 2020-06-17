@@ -2,7 +2,7 @@ input = [
         [ file: "build/html5/index.html", ancestorId: 381255740, preambleTitle: "Macro architecture"]
 ]
 
-confluenceAPI = 'https://devcolla.swisslog.com/rest/api/'
+confluenceAPI = 'https://devcolla.vanderlande.com/rest/api/'
 confluenceSpaceKey = 'MSA'
 confluenceCreateSubpages = true
 confluencePagePrefix = 'MD: '

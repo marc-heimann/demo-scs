@@ -1,10 +1,10 @@
 # Project Name
 
-Swisslog Demo SCS
+Vanderlande Demo SCS
 
 ## Installation
 
-helm install sl-releases/swisslog-demo-scs
+helm install vi-releases/demo-scs
 
 ## Usage
 
@@ -16,7 +16,7 @@ No history yet
 
 ## Credits
 
-Author: Marc Heimann <marc.heimann@swisslog.net>
+Author: Marc Heimann <marc.heimann@vanderlande.com>
 
 ## License
 
