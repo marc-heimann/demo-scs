@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: container.vanderlande.net:30056/sl/swisslog-demo-scs
+  repository: container.vanderlande.net:30056/sl/demo-scs
   tag: latest
   pullPolicy: Always
   imagePullSecret: nightly-regcred

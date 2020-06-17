@@ -1,7 +1,7 @@
 [[section-introduction-and-goals]]
 == Introduction and Goals
 
-This documentation describes the purpose and the design of the Swisslog Self Contained System demonstration implementation.
+This documentation describes the purpose and the design of the Vanderlande Self Contained System demonstration implementation.
 It is foreseen to give teams guidance in creating Self-contained system on their own. 
 
 === Purpose of this SCS implementation is to demonstrate: 
@@ -44,25 +44,25 @@ The requirements of the macro architecture can be defined with the help of the i
 |Circumstance
 |Requirement
 
-|Person at Swisslog are not very familiar with Spring Boot
-|Application shall introduce Spring boot to Swisslog employee
+|Person at Vanderlande are not very familiar with Spring Boot
+|Application shall introduce Spring boot to Vanderlande employee
 
-|Maven is used at Swisslog already since years
+|Maven is used at Vanderlande already since years
 |This application shall demonstrate, how to configure Maven to build Spring based Self-contained systems
 
 |Documentation shall be more in line with the corresponding source code 
 |This application shows how to implement the documentation of a software component using Asciidoc/Asciidoctor and hot to host it with the Software application itself
 
-|Software containerization is solely used for testing of applications at Swisslog right now
-|This demo application shall teach the Swisslog employee how to configure their software project in a way that it provides docker functionalities. It provides a Dockerfile that illustrates how to deal with containerization
+|Software containerization is solely used for testing of applications at Vanderlande right now
+|This demo application shall teach the Vanderlande employee how to configure their software project in a way that it provides docker functionalities. It provides a Dockerfile that illustrates how to deal with containerization
 
-|Jenkins is already used at Swisslog
+|Jenkins is already used at Vanderlande
 |This implementation explains, how to create a Jenkinsfile that contains the whole build chain for a Jenkins build pipeline
 
-|Swisslog uses REST based WebServices already today
+|Vanderlande uses REST based WebServices already today
 |Application shows the power of Spring in generating HATEOAS (HAL level 3) based REST applications with a minimum of effort to spent on it
 
-|Swisslog employee have very less knowledge about Kubernetes
+|Vanderlande employee have very less knowledge about Kubernetes
 |This application shows how to create a Kubernetes Helm chart that can be used to deploy the application into a Kubernetes cluster with ease 
 |===
 
@@ -92,11 +92,11 @@ describes in detail in the coming sections of this documentation.
 		<version>2.1.1.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.swisslog</groupId>
-	<artifactId>SwisslogDemoSCS</artifactId>	
+	<groupId>com.Vanderlande</groupId>
+	<artifactId>VanderlandeDemoSCS</artifactId>	
 	<version>0.0.59-SNAPSHOT</version>
-	<name>SwisslogDemoSCS</name>
-	<description>Demo project for Swisslog to demonstrate CloudNative Computing</description>
+	<name>VanderlandeDemoSCS</name>
+	<description>Demo project for Vanderlande to demonstrate CloudNative Computing</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -131,7 +131,7 @@ describes in detail in the coming sections of this documentation.
     	<cucumberTestReportFolder>docs</cucumberTestReportFolder> 
     	<org.bsc.maven.confluence.reporting.version>6.3.2</org.bsc.maven.confluence.reporting.version>
     	
-    	<chartName>swisslog-demo-scs</chartName>
+    	<chartName>Vanderlande-demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
     	 	
 	</properties>
@@ -734,14 +734,14 @@ describes in detail in the coming sections of this documentation.
 	</distributionManagement>
 	
 	<organization>
-		<name>Swisslog </name>
-		<url>www.swisslog.com</url>
+		<name>Vanderlande </name>
+		<url>www.Vanderlande.com</url>
 	</organization>
 	<scm>		
-		<developerConnection>scm:git:http://gitlab.swisslog.net/g7heimm/swisslog-demo-scs.git</developerConnection>
-		<connection>scm:git:http://gitlab.swisslog.net/g7heimm/swisslog-demo-scs.git</connection>
+		<developerConnection>scm:git:http://gitlab.Vanderlande.net/g7heimm/Vanderlande-demo-scs.git</developerConnection>
+		<connection>scm:git:http://gitlab.Vanderlande.net/g7heimm/Vanderlande-demo-scs.git</connection>
 		<tag>HEAD</tag>
-		<url>http://gitlab.swisslog.net</url>
+		<url>http://gitlab.Vanderlande.net</url>
 	</scm>
 </project>
 ----

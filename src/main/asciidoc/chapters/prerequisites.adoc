@@ -100,16 +100,16 @@ then add the following Key - Value Pairs:
 |Value
 
 |user.name
-|Swisslog username for example g7grobm
+|Vanderlande username for example g7grobm
 
 |user.email
-|firstname.lastname@swisslog.com
+|firstname.lastname@Vanderlande.com
 |===
 
 If you prefer to use the commandline, please use the following two commands.
 [source, bash]
 $ git config --global user.name "g7grobm"
-$ git config --global user.email "firstname.lastname@swisslog.com"
+$ git config --global user.email "firstname.lastname@vanderlande.com"
 
 ===== Asciidoctor
 The documetnation is being created using asciidoc. Asciidoc provides a easy to use notation that allows you to write your documentation within your software project and will be managed exactly the same like it.

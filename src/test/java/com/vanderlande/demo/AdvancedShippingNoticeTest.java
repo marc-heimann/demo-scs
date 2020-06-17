@@ -65,7 +65,7 @@ public class AdvancedShippingNoticeTest {
 	
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getAsnId()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getAsnId()}.
 	 */
 	@Test
 	public void testGetAsnId() {
@@ -73,7 +73,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setAsnId(long)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setAsnId(long)}.
 	 */
 	@Test
 	public void testSetAsnId() {
@@ -83,7 +83,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getPurchaseOrderNumber()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getPurchaseOrderNumber()}.
 	 */
 	@Test
 	public void testGetPurchaseOrderNumber() {
@@ -91,7 +91,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setPurchaseOrderNumber(long)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setPurchaseOrderNumber(long)}.
 	 */
 	@Test
 	public void testSetPurchaseOrderNumber() {
@@ -101,7 +101,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getShipNoticeNumber()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getShipNoticeNumber()}.
 	 */
 	@Test
 	public void testGetShipNoticeNumber() {
@@ -109,7 +109,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setShipNoticeNumber(long)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setShipNoticeNumber(long)}.
 	 */
 	@Test
 	public void testSetShipNoticeNumber() {
@@ -119,7 +119,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getDestinationLocation()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getDestinationLocation()}.
 	 */
 	@Test
 	public void testGetDestinationLocation() {
@@ -127,7 +127,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setDestinationLocation(com.swisslog.demo.entities.Location)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setDestinationLocation(com.vanderlande.demo.entities.Location)}.
 	 */
 	@Test
 	public void testSetDestinationLocation() {
@@ -138,7 +138,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getSupplier()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getSupplier()}.
 	 */
 	@Test
 	public void testGetSupplier() {
@@ -147,7 +147,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setSupplier(com.swisslog.demo.entities.Supplier)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setSupplier(com.vanderlande.demo.entities.Supplier)}.
 	 */
 	@Test
 	public void testSetSupplier() {
@@ -159,7 +159,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getShipDate()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getShipDate()}.
 	 */
 	@Test
 	public void testGetShipDate() {
@@ -167,7 +167,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setShipDate(long)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setShipDate(long)}.
 	 */
 	@Test
 	public void testSetShipDate() {
@@ -177,7 +177,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#getDeliveryDate()}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#getDeliveryDate()}.
 	 */
 	@Test
 	public void testGetDeliveryDate() {
@@ -185,7 +185,7 @@ public class AdvancedShippingNoticeTest {
 	}
 
 	/**
-	 * Test method for {@link com.swisslog.demo.businessobjects.AdvancedShippingNotice#setDeliveryDate(long)}.
+	 * Test method for {@link com.vanderlande.demo.businessobjects.AdvancedShippingNotice#setDeliveryDate(long)}.
 	 */
 	@Test
 	public void testSetDeliveryDate() {
