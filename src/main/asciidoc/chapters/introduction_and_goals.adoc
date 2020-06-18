@@ -37,7 +37,7 @@ It is foreseen to give teams guidance in creating Self-contained system on their
 
 === Requirements Overview
 
-The requirements of the macro architecture can be defined with the help of the issues, which are related to SynQ. Therefore the requirements will be derived by the issues, the SynQ approach does not solve today. Those issue-requirement-deflection can be found in the table below. Detailed descriptions of the single issues and why they actually are issues can be found in the following sub-chapters.
+The requirements of the macro architecture can be defined with the help of the issues, which are related to LFW. Therefore the requirements will be derived by the issues, the LFW approach does not solve today. Those issue-requirement-deflection can be found in the table below. Detailed descriptions of the single issues and why they actually are issues can be found in the following sub-chapters.
 
 [options="header", cols="1,2"]
 |===
@@ -84,19 +84,21 @@ describes in detail in the coming sections of this documentation.
 [source, xml]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.Vanderlande</groupId>
-	<artifactId>VanderlandeDemoSCS</artifactId>	
+	
+	<groupId>com.vanderlande</groupId>
+	<artifactId>DemoSCS</artifactId>	
 	<version>0.0.59-SNAPSHOT</version>
-	<name>VanderlandeDemoSCS</name>
-	<description>Demo project for Vanderlande to demonstrate CloudNative Computing</description>
+	<name>DemoSCS</name>
+	<description>Demo project to demonstrate CloudNative Computing</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -104,7 +106,7 @@ describes in detail in the coming sections of this documentation.
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
 		<docker.repository>heimann</docker.repository>
-		<imageName>sl-demo-scs</imageName>
+		<imageName>demo-scs</imageName>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
@@ -120,20 +122,22 @@ describes in detail in the coming sections of this documentation.
     	<commons-io.version>1.3.2</commons-io.version>
     	<selenium.version>3.141.59</selenium.version>
     	<org.sahli.asciidoc.confluence.publisher.version>0.7.0</org.sahli.asciidoc.confluence.publisher.version>
-    	<rootConfluenceUrl>http://10.49.145.143:8090</rootConfluenceUrl>
-    	<confluence.spaceKey>SCS</confluence.spaceKey>
-    	<confluence.documentation.ancestorId>5373967</confluence.documentation.ancestorId>
+    	<rootConfluenceUrl>http://confluence-confluence-server.confluence</rootConfluenceUrl>
+    	<confluence.spaceKey>CD</confluence.spaceKey>
+    	<confluence.documentation.ancestorId>327713</confluence.documentation.ancestorId>
     	<confluence.publisherUserName>documentation-publisher</confluence.publisherUserName>
-    	<confluence.publisherPassword>marc.heimann</confluence.publisherPassword>
+    	<confluence.publisherPassword>vanderlande</confluence.publisherPassword>
     	<asciidocRootFolder>./src/main/asciidoc</asciidocRootFolder>
     	<confluence.publishingStrategy>APPEND_TO_ANCESTOR</confluence.publishingStrategy>
-    	<confluence.test-documentation.ancestorId>5373969</confluence.test-documentation.ancestorId>
+    	<confluence.test-documentation.ancestorId>327715</confluence.test-documentation.ancestorId>
     	<cucumberTestReportFolder>docs</cucumberTestReportFolder> 
     	<org.bsc.maven.confluence.reporting.version>6.3.2</org.bsc.maven.confluence.reporting.version>
     	
-    	<chartName>Vanderlande-demo-scs</chartName>
+    	<chartName>demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
-    	 	
+
+    	<chartmuseumUrl>http://51.105.96.95:8080/</chartmuseumUrl>
+    	<helmVersion>3.0.0</helmVersion>
 	</properties>
 
 	<dependencies>
@@ -329,12 +333,12 @@ describes in detail in the coming sections of this documentation.
 	  			<plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
-			      <version>2.1.0</version>
+			      <version>2.4.1</version>
 			      <configuration>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
-			        <chartRepoUrl>http://my-chartmuseum-chartmuseum:8080</chartRepoUrl>
-			        <helmVersion>2.13.0</helmVersion>
+			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
+			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
 			        <valuesFile>src/test/helm/${chartName}/values.yaml</valuesFile>
@@ -410,12 +414,12 @@ describes in detail in the coming sections of this documentation.
 		    <plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
-			      <version>2.1.0</version>
+			      <version>2.4.1</version>
 			      <configuration>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
-			        <chartRepoUrl>http://my-chartmuseum-chartmuseum:8080</chartRepoUrl>
-			        <helmVersion>2.13.0</helmVersion>
+			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
+			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
 			        <valuesFile>src/test/helm/${chartName}/values.yaml</valuesFile>
@@ -718,30 +722,31 @@ describes in detail in the coming sections of this documentation.
 	<repositories>
 	  <repository>
 	    <id>maven-group</id>
-	    <url>http://10.49.145.193:8080/repository/maven-group/</url>
+	    <url>http://52.143.0.103:8080/repository/maven-group/</url>
 	  </repository>
 	</repositories>	
 
 	<distributionManagement>
 	  <snapshotRepository>
 	    <id>nexus-snapshots</id>
-	    <url>http://10.49.145.193:8080/repository/maven-snapshots/</url>
+	    <url>http://52.143.0.103:8080/repository/maven-snapshots/</url>
 	  </snapshotRepository>
 	  <repository>
 	    <id>nexus-releases</id>
-	    <url>http://10.49.145.193:8080/repository/maven-releases/</url>
+	    <url>http://52.143.0.103:8080/repository/maven-releases/</url>
 	  </repository>
 	</distributionManagement>
 	
 	<organization>
-		<name>Vanderlande </name>
-		<url>www.Vanderlande.com</url>
+		<name>Vanderlande</name>
+		<url>vanderlande</url>
 	</organization>
+	
 	<scm>		
-		<developerConnection>scm:git:http://gitlab.Vanderlande.net/g7heimm/Vanderlande-demo-scs.git</developerConnection>
-		<connection>scm:git:http://gitlab.Vanderlande.net/g7heimm/Vanderlande-demo-scs.git</connection>
+		<developerConnection>scm:git:http://github.com:marc-heimann/demo-scs.git</developerConnection>
+		<connection>scm:git:https://github.com:marc-heimann/demo-scs.git</connection>
 		<tag>HEAD</tag>
-		<url>http://gitlab.Vanderlande.net</url>
+		<url>http://github.com</url>
 	</scm>
 </project>
 ----
