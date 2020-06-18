@@ -12,9 +12,9 @@ podTemplate(
 	node(POD_LABEL) {
 	
 		stage('Initialize'){
-			env.repositoryName = "heimann"
+			env.repositoryName = "vi"
 			env.deliverableName = "demo-scs"
-			env.containerRegistry = "docker.io"
+			env.containerRegistry = "https://vicentral.azurecr.io"
 			env.dockerHome = "/var/run/docker.sock"
 			env.dockerDaemonURL = "tcp://10.49.145.110:2375"
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
@@ -43,7 +43,7 @@ podTemplate(
 			    sh "mvn clean test sonar:sonar -Dsonar.projectKey=SCSDEMO -Dsonar.host.url=http://sonarqube-sonarqube:9000 -Dsonar.login=1ab7d99728fd6cb3c77444a32e3785d147208e2d -Pbuild"		    		
 			}
 	    }
-	    */ 
+	    */   
 	    	    
 	    stage('Build & Publish Documentation') {
 	    	container('maven') {		    
@@ -58,7 +58,6 @@ podTemplate(
 			
 			}
 	    }
-	     
 	    
 		stage('Docker Build') {	   
 			container('docker') {
@@ -68,24 +67,17 @@ podTemplate(
 	 
 	 	stage('Docker Tag Nightly') {	   
 			container('docker') {
-				/*sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"*/
-				
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.repositoryName}/${env.deliverableName}:latest"
-				
+				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
+				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"
 			}
 		}
 		
 		stage('Docker Push Nightly') {
-	      withCredentials([usernamePassword(credentialsId: 'heimann-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+	      withCredentials([usernamePassword(credentialsId: 'vicentral-docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 	      	container('docker') {
 		        sh "docker login -u ${USERNAME} -p ${PASSWORD} http://${containerRegistry}"
-		        /*sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"*/
-		        
-		        sh "docker push ${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-		        sh "docker push ${env.repositoryName}/${env.deliverableName}:latest"		        
+		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
+		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"		        
 	        }
 	      }
 	}
