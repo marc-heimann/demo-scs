@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: docker.io/heimann/demo-scs
+  repository: https://vicentral.azurecr.io/vi/demo-scs
   tag: latest
   pullPolicy: Always
-  imagePullSecret: heimann-regcred
+  imagePullSecret: vicentral
 
 nameOverride: ""
 fullnameOverride: ""
