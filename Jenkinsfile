@@ -12,9 +12,9 @@ podTemplate(
 	node(POD_LABEL) {
 	
 		stage('Initialize'){
-			env.repositoryName = "vi"
+			env.repositoryName = "heimann"
 			env.deliverableName = "demo-scs"
-			env.containerRegistry = "https://vicentral.azurecr.io"
+			env.containerRegistry = "docker.io"
 			env.dockerHome = "/var/run/docker.sock"
 			env.dockerDaemonURL = "tcp://10.49.145.110:2375"
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
@@ -66,21 +66,20 @@ podTemplate(
 		}
 	 
 	 	stage('Docker Tag Nightly') {
-	 	  withCredentials([usernamePassword(credentialsId: 'vicentral-docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {	   
+	 	  withCredentials([usernamePassword(credentialsId: 'heimann-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {	   
 			container('docker') {
 				sh "docker login -u ${USERNAME} -p ${PASSWORD} http://${containerRegistry}"
-				
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.repositoryName}/${env.deliverableName}:latest"
+				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
+				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"
 			}
 		  }
 		}
 		
 		stage('Docker Push Nightly') {
-	      withCredentials([usernamePassword(credentialsId: 'vicentral-docker', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+	      withCredentials([usernamePassword(credentialsId: 'heimann-dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 	      	container('docker') {		        
-		        sh "docker push ${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-		        sh "docker push ${env.repositoryName}/${env.deliverableName}:latest"		        
+		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
+		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"		        
 	        }
 	      }
 		}
