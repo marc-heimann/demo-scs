@@ -68,7 +68,7 @@ podTemplate(
 	 	stage('Docker Tag Nightly') {	   
 			container('docker') {
 				/*sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"
+				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"*/
 			}
 		}
 		
