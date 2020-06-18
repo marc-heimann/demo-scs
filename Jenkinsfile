@@ -43,7 +43,7 @@ podTemplate(
 			    sh "mvn clean test sonar:sonar -Dsonar.projectKey=SCSDEMO -Dsonar.host.url=http://sonarqube-sonarqube:9000 -Dsonar.login=1ab7d99728fd6cb3c77444a32e3785d147208e2d -Pbuild"		    		
 			}
 	    }
-	     
+	    */ 
 	    	    
 	    stage('Build & Publish Documentation') {
 	    	container('maven') {		    
@@ -58,7 +58,7 @@ podTemplate(
 			
 			}
 	    }
-	    */  
+	     
 	    
 		stage('Docker Build') {	   
 			container('docker') {

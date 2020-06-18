@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: index.docker.io/heimann/demo-scs
+  repository: docker.io/heimann/demo-scs
   tag: latest
   pullPolicy: Always
-  imagePullSecret: nightly-regcred
+  imagePullSecret: heimann-regcred
 
 nameOverride: ""
 fullnameOverride: ""
@@ -30,7 +30,7 @@ services:
         kind: Mapping
         name: asns_get_mapping
         prefix: /v1/asns
-        service: http://asns.vi-application:80
+        service: http://asns.multi:80
         method: GET
         rewrite: ""
         ---
@@ -38,7 +38,7 @@ services:
         kind: Mapping
         name: asns_put_mapping
         prefix: /v1/asns
-        service: http://asns.vi-application:80
+        service: http://asns.multi:80
         method: PUT
         rewrite: ""
         ---
@@ -46,7 +46,7 @@ services:
         kind: Mapping
         name: asns_post_mapping
         prefix: /v1/asns
-        service: http://asns.vi-application:80
+        service: http://asns.multi:80
         method: POST
         rewrite: ""
         ---
@@ -54,7 +54,7 @@ services:
         kind: Mapping
         name: asns_delete_mapping
         prefix: '/v1/asns'
-        service: http://asns.vi-application:80
+        service: http://asns.multi:80
         method: DELETE
         rewrite: ""
   - name: skus
@@ -73,7 +73,7 @@ services:
         kind: Mapping
         name: skus_get_mapping
         prefix: /v1/skus
-        service: http://skus.vi-application:80
+        service: http://skus.multi:80
         method: GET
         rewrite: ""
         ---
@@ -81,7 +81,7 @@ services:
         kind: Mapping
         name: skus_put_mapping
         prefix: /v1/skus
-        service: http://skus.vi-application:80
+        service: http://skus.multi:80
         method: PUT
         rewrite: ""
         ---
@@ -89,7 +89,7 @@ services:
         kind: Mapping
         name: skus_post_mapping
         prefix: /v1/skus
-        service: http://skus.vi-application:80
+        service: http://skus.multi:80
         method: POST
         rewrite: ""
         ---
@@ -97,7 +97,7 @@ services:
         kind: Mapping
         name: skus_delete_mapping
         prefix: /v1/skus
-        service: http://skus.vi-application:80
+        service: http://skus.multi:80
         method: DELETE
         rewrite: ""
 ingress:
