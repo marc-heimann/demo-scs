@@ -14,7 +14,7 @@ podTemplate(
 		stage('Initialize'){
 			env.repositoryName = "heimann"
 			env.deliverableName = "demo-scs"
-			env.containerRegistry = "index.docker.io"
+			env.containerRegistry = "docker.io"
 			env.dockerHome = "/var/run/docker.sock"
 			env.dockerDaemonURL = "tcp://10.49.145.110:2375"
 			env.PATH = "${dockerHome}/bin:${env.PATH}"
@@ -68,7 +68,7 @@ podTemplate(
 	 	stage('Docker Tag Nightly') {	   
 			container('docker') {
 				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:${env.pomVersion}.${env.BUILD_NUMBER}"
-				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"				
+				sh "docker tag ${env.repositoryName}/${env.deliverableName}:${env.pomVersion} ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"
 			}
 		}
 		
