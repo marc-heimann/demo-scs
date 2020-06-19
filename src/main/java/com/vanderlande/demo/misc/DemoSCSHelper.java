@@ -36,9 +36,9 @@ public class DemoSCSHelper {
 		Location location = new Location();
 		location.setCountry("Germany");
 		location.setCity("Dortmund");
-		location.setNumber("13a");
+		location.setNumber("25");
 		location.setState("NRW");
-		location.setStreet("Martin-Schmeisser-Weg");
+		location.setStreet("Joseph-vonFraunhofer Strasse");
 		location.setZipCode("44227");
 		return location;
 	}
@@ -46,7 +46,7 @@ public class DemoSCSHelper {
 	public Supplier createAndReturnSupplier(long i) {
 		Supplier s = new Supplier();
 		s.setId(i);
-		s.setName("The Supplier");
+		s.setName("A Supplier");
 		return s;
 	}
 	

@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: https://vicentral.azurecr.io/vi/demo-scs
+  repository: vicentral.azurecr.io/vi/demo-scs
   tag: latest
   pullPolicy: Always
   imagePullSecret: vicentral
