@@ -18,8 +18,7 @@ Author: <marc.heimann@vanderlande.com>
 
 Last update: {docdate}
 
-
-Hello Adrie :)
+Hello Edo :)
 
 include::chapters/introduction_and_goals.adoc[]
 include::chapters/prerequisites.adoc[]
