@@ -14,7 +14,7 @@ To install the software by using the docker container, please execute the follow
 	$ docker run <container_name> -p 80:80 
 
 ## Scope
-This service is meant to teach people on how to build a technical foundation for a Service.
+This service is meant to teach people on how to build a technical foundation for a service.
 
 ## Credits
 
