@@ -49,9 +49,9 @@ podTemplate(
 	    }
 	    
 	    
-	    stage('Deploy Java Artifact') {
+	    stage('Deploy Helm Artifact') {
 	    	container('maven') {		    
-			    sh "mvn deploy helm:package helm:deploy -s mvn-settings.xml -Dmaven.test.skip=true -Pbuild -X -e"
+			    sh "mvn helm:package helm:deploy -s mvn-settings.xml -Dmaven.test.skip=true -Pbuild -X -e"
 			
 			}
 	    }
