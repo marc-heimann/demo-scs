@@ -52,6 +52,8 @@
 
     	<chartmuseumUrl>http://51.105.96.95:8080/</chartmuseumUrl>
     	<helmVersion>3.0.0</helmVersion>
+    	<chartRepoUsername>vanderlande</chartRepoUsername>
+    	<chartRepoPassword>vanderlande</chartRepoPassword>
 	</properties>
 
 	<dependencies>
@@ -249,6 +251,8 @@
 			      <artifactId>helm-maven-plugin</artifactId>
 			      <version>2.4.1</version>
 			      <configuration>
+			        <chartRepoUsername>${chartRepoUsername}</chartRepoUsername>
+			        <chartRepoPassword>${chartRepoPassword}</chartRepoPassword>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
 			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
@@ -330,6 +334,8 @@
 			      <artifactId>helm-maven-plugin</artifactId>
 			      <version>2.4.1</version>
 			      <configuration>
+			      	<chartRepoUsername>${chartRepoUsername}</chartRepoUsername>
+			        <chartRepoPassword>${chartRepoPassword}</chartRepoPassword>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
 			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
