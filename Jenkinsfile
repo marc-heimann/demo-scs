@@ -48,12 +48,14 @@ podTemplate(
 			} 
 	    }
 	    
+	    /*
 	    stage('Deploy Java Artifact') {
 	    	container('maven') {		    
 			    sh "mvn deploy -Pbuild -X -e"
 			
 			}
 	    }
+	    */
 	    
 	    stage('Deploy Helm Artifact') {
 	    	container('maven') {		    
