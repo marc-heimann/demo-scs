@@ -85,6 +85,6 @@ podTemplate(
 		        sh "docker push ${env.containerRegistry}/${env.repositoryName}/${env.deliverableName}:latest"		        
 	        }
 	      }
-	}
+		}
 	}
 }

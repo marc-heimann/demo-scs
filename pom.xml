@@ -642,18 +642,18 @@
 	<repositories>
 	  <repository>
 	    <id>maven-group</id>
-	    <url>http://52.143.0.103:8080/repository/maven-group/</url>
+	    <url>http://20.50.245.108:8080/repository/maven-group/</url>
 	  </repository>
 	</repositories>	
 
 	<distributionManagement>
 	  <snapshotRepository>
 	    <id>nexus-snapshots</id>
-	    <url>http://52.143.0.103:8080/repository/maven-snapshots/</url>
+	    <url>http://20.50.245.108:8080/repository/maven-snapshots/</url>
 	  </snapshotRepository>
 	  <repository>
 	    <id>nexus-releases</id>
-	    <url>http://52.143.0.103:8080/repository/maven-releases/</url>
+	    <url>http://20.50.245.108:8080/repository/maven-releases/</url>
 	  </repository>
 	</distributionManagement>
 	
