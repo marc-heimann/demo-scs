@@ -5,36 +5,18 @@
 replicaCount: 1
 
 image:
-  repository: container.vanderlande.net:30056/sl/demo-scs
+  repository: vicentral.azurecr.io/vi/demo-scs
   tag: latest
+  repositoryAndTag: vicentral.azurecr.io/vi/demo-scs:latest
   pullPolicy: Always
-  imagePullSecret: nightly-regcred
+  imagePullSecret: vicentral
 
 nameOverride: ""
 fullnameOverride: ""
 
 services:  
-  - name: asn
-    enabled: true    
-    type: NodePort
-    port: 80
-    host: asn
-    subsets:
-    - name: latest
-      labels:
-        version: nil
-    annotations: 
-      getambassador.io/config: |
-        ---
-        apiVersion: ambassador/v1
-        kind: Mapping
-        name: asn_get_mapping
-        prefix: /v1/asn
-        service: http://asn.sl-application:80
-        method: GET
-        rewrite: ""
   - name: asns
-    enabled: true
+    enabled: true    
     type: NodePort
     port: 80
     host: asns
@@ -49,31 +31,36 @@ services:
         kind: Mapping
         name: asns_get_mapping
         prefix: /v1/asns
-        service: http://asns.sl-application:80
+        service: http://asns.multi:80
         method: GET
         rewrite: ""
-  - name: sku
-    enabled: true
-    type: NodePort
-    port: 80
-    host: sku
-    subsets:
-    - name: latest
-      labels:
-        version: nil
-    annotations: 
-      getambassador.io/config: |
         ---
         apiVersion: ambassador/v1
         kind: Mapping
-        name: sku_get_mapping
-        prefix: /v1/sku
-        service: http://sku.sl-application:80
-        method: GET
+        name: asns_put_mapping
+        prefix: /v1/asns
+        service: http://asns.multi:80
+        method: PUT
+        rewrite: ""
+        ---
+        apiVersion: ambassador/v1
+        kind: Mapping
+        name: asns_post_mapping
+        prefix: /v1/asns
+        service: http://asns.multi:80
+        method: POST
+        rewrite: ""
+        ---
+        apiVersion: ambassador/v1
+        kind: Mapping
+        name: asns_delete_mapping
+        prefix: '/v1/asns'
+        service: http://asns.multi:80
+        method: DELETE
         rewrite: ""
   - name: skus
     enabled: true
-    type: NodePort
+    type: ClusterIP
     port: 80
     host: skus
     subsets:
@@ -86,15 +73,38 @@ services:
         apiVersion: ambassador/v1
         kind: Mapping
         name: skus_get_mapping
-        prefix: /v1/asn
-        service: http://skus.sl-application:80
+        prefix: /v1/skus
+        service: http://skus.multi:80
         method: GET
         rewrite: ""
-    
+        ---
+        apiVersion: ambassador/v1
+        kind: Mapping
+        name: skus_put_mapping
+        prefix: /v1/skus
+        service: http://skus.multi:80
+        method: PUT
+        rewrite: ""
+        ---
+        apiVersion: ambassador/v1
+        kind: Mapping
+        name: skus_post_mapping
+        prefix: /v1/skus
+        service: http://skus.multi:80
+        method: POST
+        rewrite: ""
+        ---
+        apiVersion: ambassador/v1
+        kind: Mapping
+        name: skus_delete_mapping
+        prefix: /v1/skus
+        service: http://skus.multi:80
+        method: DELETE
+        rewrite: ""
 ingress:
-  enabled: true
+  enabled: false
   annotations: {"kubernetes.io/ingress.class": "istio"}
-  paths: ["/v1/asn/.*", "/v1/asns/.*", "/v1/sku/.*", "/v1/skus/.*"]
+  paths: ["/v1/asns/.*", "/v1/skus/.*"]
   hosts: []    
   tls: []
   #  - secretName: chart-example-tls
