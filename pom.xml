@@ -51,7 +51,7 @@
     	<skipSnapshotChart>false</skipSnapshotChart>
 
     	<chartmuseumUrl>http://51.105.96.95:8080/</chartmuseumUrl>
-    	<helmVersion>3.0.0</helmVersion>
+    	<helmVersion>2.16.1</helmVersion>
     	<chartRepoUsername>vanderlande</chartRepoUsername>
     	<chartRepoPassword>vanderlande</chartRepoPassword>
     	<helmPluginVersion>2.4.1</helmPluginVersion>
@@ -260,7 +260,7 @@
 			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
-			        <valuesFile>target/helm/${chartName}/values.yaml</valuesFile>
+			        <valuesFile>src/main/helm/${chartName}/values.yaml</valuesFile>
 			      </configuration>
 			      <executions>
 			        <execution>
