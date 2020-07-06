@@ -26,7 +26,7 @@
     <mirror>
       <id>central</id>
       <name>central</name>
-      <url>http://20.50.245.108:8080/repository/maven-group/</url>
+      <url>http://52.157.237.13:8080/repository/maven-group/</url>
       <mirrorOf>*</mirrorOf>
     </mirror>
   </mirrors>
