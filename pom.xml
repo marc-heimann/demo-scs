@@ -661,8 +661,8 @@
 	</organization>
 	
 	<scm>		
-		<developerConnection>scm:git:https://git@github.com:marc-heimann/demo-scs.git</developerConnection>
-		<connection>scm:git:https://git@github.com:marc-heimann/demo-scs.git</connection>
+		<developerConnection>scm:git:git@github.com:marc-heimann/demo-scs.git</developerConnection>
+		<connection>scm:git:git@github.com:marc-heimann/demo-scs.git</connection>
 		<tag>HEAD</tag>
 		<url>http://github.com</url>
 	</scm>
