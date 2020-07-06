@@ -661,7 +661,7 @@
 	</organization>
 	
 	<scm>		
-		<developerConnection>scm:git:http://github.com:marc-heimann/demo-scs.git</developerConnection>
+		<developerConnection>scm:git:https://github.com:marc-heimann/demo-scs.git</developerConnection>
 		<connection>scm:git:https://github.com:marc-heimann/demo-scs.git</connection>
 		<tag>HEAD</tag>
 		<url>http://github.com</url>
