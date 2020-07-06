@@ -260,7 +260,7 @@
 			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
-			        <valuesFile>./src/main/helm/${chartName}/values.yaml</valuesFile>
+			        <valuesFile>release/src/main/helm/${chartName}/values.yaml</valuesFile>
 			      </configuration>
 			      <executions>
 			        <execution>
@@ -343,7 +343,7 @@
 			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
-			        <valuesFile>./src/main/helm/${chartName}/values.yaml</valuesFile>
+			        <valuesFile>src/main/helm/${chartName}/values.yaml</valuesFile>
 			      </configuration>
 			      <executions>
 			        <execution>
