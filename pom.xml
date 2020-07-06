@@ -54,6 +54,7 @@
     	<helmVersion>2.16.1</helmVersion>
     	<chartRepoUsername>vanderlande</chartRepoUsername>
     	<chartRepoPassword>vanderlande</chartRepoPassword>
+    	<helmPluginVersion>2.4.1</helmPluginVersion>
 	</properties>
 
 	<dependencies>
@@ -249,7 +250,7 @@
 	  			<plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
-			      <version>2.4.1</version>
+			      <version>${helmPluginVersion}</version>
 			      <configuration>
 			        <chartRepoUsername>${chartRepoUsername}</chartRepoUsername>
 			        <chartRepoPassword>${chartRepoPassword}</chartRepoPassword>
@@ -332,7 +333,7 @@
 		    <plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
-			      <version>2.4.1</version>
+			      <version>${helmPluginVersion}</version>
 			      <configuration>
 			      	<chartRepoUsername>${chartRepoUsername}</chartRepoUsername>
 			        <chartRepoPassword>${chartRepoPassword}</chartRepoPassword>
