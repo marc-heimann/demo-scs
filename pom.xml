@@ -51,7 +51,7 @@
     	<skipSnapshotChart>false</skipSnapshotChart>
 
     	<chartmuseumUrl>http://51.105.96.95:8080</chartmuseumUrl>
-    	<helmVersion>2.16.1</helmVersion>
+    	<helmVersion>3.0.0</helmVersion>
     	<chartRepoUsername>vanderlande</chartRepoUsername>
     	<chartRepoPassword>vanderlande</chartRepoPassword>
     	<helmPluginVersion>2.4.1</helmPluginVersion>
