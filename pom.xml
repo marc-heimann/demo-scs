@@ -50,7 +50,7 @@
     	<chartName>demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
 
-    	<chartmuseumUrl>http://51.105.96.95:8080/</chartmuseumUrl>
+    	<chartmuseumUrl>http://51.105.96.95:8080</chartmuseumUrl>
     	<helmVersion>2.16.1</helmVersion>
     	<chartRepoUsername>vanderlande</chartRepoUsername>
     	<chartRepoPassword>vanderlande</chartRepoPassword>
