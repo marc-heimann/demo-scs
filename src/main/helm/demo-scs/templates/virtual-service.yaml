@@ -1,3 +1,4 @@
+{{- if .Values.services.enabled -}}
 {{ range $.Values.services }}
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -24,3 +25,4 @@ spec:
         subset: {{ .name }}
         {{- end }}
 {{ end }}
+{{- end }}

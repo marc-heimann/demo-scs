@@ -14,7 +14,8 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
-services:  
+services:
+  enabled: false
   - name: asns
     enabled: true    
     type: NodePort
