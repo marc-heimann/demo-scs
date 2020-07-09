@@ -1,4 +1,4 @@
-{{- if .Values.services.enabled -}}
+{{ if .Values.services.enabled }}
 {{ range $.Values.services }}
 ---
 apiVersion: v1
@@ -30,4 +30,4 @@ spec:
     app.kubernetes.io/name: {{ $.Chart.Name }}
     app.kubernetes.io/instance: {{ $.Release.Name }}
 {{ end }}
-{{- end }}
+{{ end }}
