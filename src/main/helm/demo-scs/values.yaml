@@ -16,7 +16,7 @@ fullnameOverride: ""
 
 services:
   - name: asns
-    enabled: true    
+    enabled: false    
     type: NodePort
     port: 80
     host: asns
@@ -59,7 +59,7 @@ services:
         method: DELETE
         rewrite: ""
   - name: skus
-    enabled: true
+    enabled: false
     type: ClusterIP
     port: 80
     host: skus
