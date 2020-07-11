@@ -4,7 +4,6 @@ metadata:
   name: {{ include "demo-scs.fullname" . }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ $.Chart.Name }} 
     app.kubernetes.io/name: {{ $.Chart.Name }}
     helm.sh/chart: {{ $.Chart.Name }}
     app.kubernetes.io/instance: {{ $.Release.Name }}
