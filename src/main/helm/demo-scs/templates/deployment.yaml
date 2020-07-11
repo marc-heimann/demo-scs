@@ -10,7 +10,6 @@ metadata:
     app.kubernetes.io/managed-by: {{ $.Release.Service }}
     app.kubernetes.io/part-of: {{ $.Chart.Name }}
     app.kubernetes.io/version: ${project.version}
-    app: {{ $.Chart.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
