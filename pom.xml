@@ -247,6 +247,110 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5.3</version>				
 				</plugin>
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+	 				<configuration>
+		                <filesets>
+		                    <fileset>
+		                        <directory>src/main/resources/static/documentation</directory>	                                            
+		                        <followSymlinks>false</followSymlinks>
+		                    </fileset>
+		                </filesets>
+	            	</configuration>			
+			    </plugin>
+				<plugin>
+		        <groupId>org.asciidoctor</groupId>
+		        <artifactId>asciidoctor-maven-plugin</artifactId>
+		        <version>${asciidoctor.maven-plugin.version}</version>
+		        <dependencies>
+		        	<dependency>
+		        		<groupId>org.asciidoctor</groupId>
+      					<artifactId>asciidoctorj-diagram</artifactId>
+      					<version>${asciidoctorj.diagram.version}</version>
+		        	</dependency>
+		        	<dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>                   
+		        </dependencies>
+		        <configuration>
+		        	<sourceDirectory>${sourceDirectory}</sourceDirectory>
+        			<outputDirectory>${outputDirectory}</outputDirectory>
+		        	<attributes>
+		        		<!-- Uses the <img src="data:image/png;base64> syntax for diagrams -->
+		        		<data-uri />
+		        		<!-- Allows access to remote files (eg. code on external GitHub) -->		        		
+		        		<!-- imagesdir>./images</imagesdir-->
+                        <allow-uri-read>true</allow-uri-read>
+		        	</attributes>
+		        	<requires>
+		        		<require>asciidoctor-diagram</require>
+		        	</requires>
+		        </configuration>        
+				<executions>
+                    <execution>                    
+                        <id>generate-html-doc</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                        </configuration>
+                    </execution>                     
+ 					<execution>
+                        <id>generate-pdf-doc</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>                    
+                            <sourceHighlighter>coderay</sourceHighlighter>
+                            <attributes>
+                                <icons>font</icons>
+                                <pagenums />
+                                <toc />
+                                <idprefix />
+                                <idseparator>-</idseparator>
+                            </attributes>
+                        </configuration>
+                    </execution>    
+                </executions>		        
+		    </plugin>
+		    <plugin>
+	    		<groupId>org.sahli.asciidoc.confluence.publisher</groupId>
+	    		<artifactId>asciidoc-confluence-publisher-maven-plugin</artifactId>
+	    		<version>${org.sahli.asciidoc.confluence.publisher.version}</version>
+	    		<configuration>
+		        	<asciidocRootFolder>${asciidocRootFolder}</asciidocRootFolder>
+		        	<sourceEncoding>UTF-8</sourceEncoding>
+		        	<rootConfluenceUrl>${rootConfluenceUrl}</rootConfluenceUrl>
+		        	<spaceKey>${confluence.spaceKey}</spaceKey>
+		        	<ancestorId>${confluence.documentation.ancestorId}</ancestorId>
+		        	<username>${confluence.publisherUserName}</username>
+		        	<password>${confluence.publisherPassword}</password>
+		        	<pageTitlePrefix xml:space="preserve" />
+		        	<publishingStrategy>${confluence.publishingStrategy}</publishingStrategy>
+		        	<pageTitleSuffix xml:space="preserve"> [${project.version}]</pageTitleSuffix>
+		        	<versionMessage>Version ${project.version}</versionMessage>
+			        	<attributes>
+			            	<version>${project.version}</version>
+			            	<someOtherKey>value</someOtherKey>
+			        	</attributes>
+	    		</configuration>
+	    		<executions>
+                	<execution>
+				        <id>publish-documentation</id>
+				        <phase>generate-resources</phase>
+				        <goals>
+				            <goal>publish</goal>
+				        </goals>
+				    </execution>
+			    </executions>  
+	    	</plugin>
 	  			<plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
@@ -305,31 +409,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-		        <groupId>org.asciidoctor</groupId>
-		        <artifactId>asciidoctor-maven-plugin</artifactId>
-		        <version>${asciidoctor.maven-plugin.version}</version>
-		        <dependencies>
-		        	<dependency>
-		        		<groupId>org.asciidoctor</groupId>
-      					<artifactId>asciidoctorj-diagram</artifactId>
-      					<version>${asciidoctorj.diagram.version}</version>
-		        	</dependency>
-		        	<dependency>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctorj-pdf</artifactId>
-                        <version>${asciidoctorj.pdf.version}</version>
-                    </dependency>                   
-		        </dependencies>
-		        <configuration>
-		        	<sourceDirectory>${sourceDirectory}</sourceDirectory>
-        			<outputDirectory>${outputDirectory}</outputDirectory>
-		        	<requires>
-		        		<require>asciidoctor-diagram</require>
-		        	</requires>
-		        </configuration>	        
-		    </plugin>		    
+			</plugin>					    
 		    <plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
