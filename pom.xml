@@ -10,7 +10,7 @@
 	
 	<groupId>com.vanderlande</groupId>
 	<artifactId>DemoSCS</artifactId>	
-	<version>0.0.85-SNAPSHOT</version>
+	<version>0.0.90-SNAPSHOT</version>
 	<name>DemoSCS</name>
 	<description>Demo project to demonstrate CloudNative Computing</description>
 
