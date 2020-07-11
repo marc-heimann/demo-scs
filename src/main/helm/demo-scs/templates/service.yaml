@@ -27,5 +27,6 @@ spec:
       name: http
   selector:
     app: {{ $.Chart.Name }}
+    helm.sh/chart: {{ $.Chart.Name }}
 {{- end }}
 {{ end }}
