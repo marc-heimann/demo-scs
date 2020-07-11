@@ -24,7 +24,8 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         app.kubernetes.io/managed-by: {{ .Release.Service }}
         app.kubernetes.io/part-of: {{ include "demo-scs.name" . }}
-        app.kubernetes.io/version: ${project.version}     
+        app.kubernetes.io/version: ${project.version}  
+        app: {{ $.Chart.Name }}   
     spec:
       imagePullSecrets: 
         - name: {{ .Values.image.imagePullSecret }}
