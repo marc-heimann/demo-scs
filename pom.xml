@@ -10,7 +10,7 @@
 	
 	<groupId>com.vanderlande</groupId>
 	<artifactId>DemoSCS</artifactId>	
-	<version>0.0.88-SNAPSHOT</version>
+	<version>0.0.85-SNAPSHOT</version>
 	<name>DemoSCS</name>
 	<description>Demo project to demonstrate CloudNative Computing</description>
 
@@ -48,7 +48,7 @@
     	<org.bsc.maven.confluence.reporting.version>6.3.2</org.bsc.maven.confluence.reporting.version>
     	
     	<chartName>demo-scs</chartName>
-    	<skipSnapshotChart>false</skipSnapshotChart>
+    	<skipSnapshotChart>true</skipSnapshotChart>
 
     	<chartmuseumUrl>http://51.105.96.95:8080</chartmuseumUrl>
     	<helmVersion>2.16.1</helmVersion>
