@@ -10,7 +10,7 @@
 	
 	<groupId>com.vanderlande</groupId>
 	<artifactId>DemoSCS</artifactId>	
-	<version>0.0.97</version>
+	<version>0.0.98-SNAPSHOT</version>
 	<name>DemoSCS</name>
 	<description>Demo project to demonstrate CloudNative Computing</description>
 
@@ -744,7 +744,7 @@
 	<scm>		
 		<developerConnection>scm:git:git@github.com:marc-heimann/demo-scs.git</developerConnection>
 		<connection>scm:git:git@github.com:marc-heimann/demo-scs.git</connection>
-		<tag>DemoSCS-0.0.97</tag>
+		<tag>HEAD</tag>
 		<url>http://github.com</url>
 	</scm>
 </project>
