@@ -1,1 +1,1 @@
-
+{"result":"${#stage(\"Bake Helm\")[\"outputs\"][\"artifacts\"][0][\"reference\"]}","detail":{"#stage( #root.execution, \"Bake Helm\")[\"outputs\"][\"artifacts\"][0][\"reference\"]":[{"description":"Failed to evaluate [expression] Unable to locate [Bake Helm] using #stage(Bake Helm) in execution 01EJE5ACD45K5DPZS13CYWWXW3 - EL1023E: A problem occurred whilst attempting to invoke the function 'stage': 'null'","exceptionType":"com.netflix.spinnaker.kork.expressions.SpelHelperFunctionException","timestamp":1600446875866,"level":"ERROR"}]}}
