@@ -1,1 +1,1 @@
-$(curl -X GET "http://vispinnakergate.westeurope.cloudapp.azure.com:8084/pipelines/${PIPELINE_ID}/evaluateExpression?expression=%24%7B%23stage(%22Bake%20Helm%22)%5B%22outputs%22%5D%5B%22artifacts%22%5D%5B0%5D%5B%22reference%22%5D%7D" -H "Authorization: Bearer $TOKEN" -H "accept: */*" -c cookies | jq ".result" -r)
+
