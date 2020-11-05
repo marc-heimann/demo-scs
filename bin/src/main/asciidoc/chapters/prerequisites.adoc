@@ -1,0 +1,170 @@
+[[section-prerequisits]]
+== Prerequisits
+
+image::images/cloud_native.png[CN introduction image]
+
+=== Prepare your machine
+There are some things to be done before we can start to implement the first Self Contained System.
+As everything founds on Cloud Native technologies and techniques, we have to make an actual cloud environment out of our machine. 
+
+==== Windows 10
+This section describes how to prepare your machine to get started with the SCS development
+on a Windows 10 workstation.
+
+===== Chocolatey
+The most easy way of setting up your cloud native workstation is by getting some sweet help.
+
+link:https://chocolatey.org/[Chocolatey] is a package manager for Windows 10 and provides very much the same functionality you would expect from apt-get or similar package managers you'll find with linux distributions.
+
+====== Installation
+
+[IMPORTANT]
+====
+Please be aware, that you have to launch the PowerShell as Administrator
+====
+
+1. Launch the PowerShell
+2. Execute the following command:	
+
+[source, Powershell]
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+Once the installation is done, we can go over to prepare the next level.
+
+===== Kubernetes Command Line Interface
+The application you'll build will be containerized on its way through the build pipeline and will end up as a pod inside of a Kubernetes cluster.
+In order to communicate with the unified environment your application will run on, you need to have a command line interface available that manages the various configurations to the various Kubernetes clusters you'll work with at a time. 
+The kubectl command forms the gate into the cluster you want to talk to. With kubectl you can install, remove scale your applications or many other actions as well as manage the cluster resources in a way. 
+If you like further information visit link:https://kubernetes.io/docs/reference/kubectl/kubectl-cmds/[the kubectl command reference].
+
+[NOTE]
+ A computing resource in this context means a virtual machine, a bare metal machine, a private cloud resource or a public cloud recource. A computing resource environment can be a private server rack, a datacenter as well as a private or public cloud provider. 
+
+Please visit https://kubernetes.io/ to get more insights.
+
+====== Installation
+To execute a fresh installation of the Kubernetes Command Line Interface, we are using link:https://chocolatey.org/[Chocolatey] to execute the following command in your Powershell window:
+[source, Powershell]
+choco install kubernetes-cli
+
+To check whether the installation was successful, you should execute the following command:
+
+[source, Powershell]
+kubectl version
+
+You shoule see something like:
+
+[source,Powershell]
+Client Version: version.Info{Major:"1", Minor:"13", GitVersion:"v1.13.4", GitCommit:"c27b913fddd1a6c480c229191a087698aa92f0b1", GitTreeState:"clean", BuildDate:"2019-02-28T13:37:52Z", GoVersion:"go1.11.5", Compiler:"gc", Platform:"windows/amd64"}
+Unable to connect to the server: dial tcp [::1]:8080: connectex: Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte.
+
+[INFO]
+Just ignore the error message, the reason is that there is no Kubernetes cluster configured yet.
+We will configure one later.
+
+====== Update
+If you wish an update rather than a fresh installation, execute the following command in your Powershell window:
+[source, Powershell]
+choco upgrade kubernetes-cli
+
+===== Docker
+To be able to create, start or manage software containers locally you'll have to install a Docker environment for your machine.
+Unfortunetaly, you'll have to have an account on docker hub to be able to download Docker for Desktop. Probably you already have one :).
+
+1. Visit link:https://docs.docker.com/docker-for-windows/install/[Download Docker for Desktop] to download the binary.
+2. Double click the file and follow the instructions of the installer.
+
+===== Postman
+A nice tool that will help you design, test and document the API's you'll create is link:https://www.getpostman.com[Postman] 
+
+====== Installation
+To install the latest verified version of Postman from the repo, please execute the following command in the Powershell:
+[source,Powershell] 
+choco install postman
+
+====== Update
+To update it just execute the following command in the Powershell:
+[source,Powershell]
+choco upgrade postman
+
+===== Eclipse
+After installing Eclipse please install the EGit and Asciidoctor Editor Plugins.
+
+====== EGit
+To configure your username and email correctly, please go to: 
+Window -> Preferences -> Team -> Git -> Configuration -> User Settings
+then add the following Key - Value Pairs:
+[options="header", cols="1,2"]
+|===
+|Key
+|Value
+
+|user.name
+|Vanderlande username for example g7grobm
+
+|user.email
+|firstname.lastname@Vanderlande.com
+|===
+
+If you prefer to use the commandline, please use the following two commands.
+[source, bash]
+$ git config --global user.name "g7grobm"
+$ git config --global user.email "firstname.lastname@vanderlande.com"
+
+===== Asciidoctor
+The documetnation is being created using asciidoc. Asciidoc provides a easy to use notation that allows you to write your documentation within your software project and will be managed exactly the same like it.
+To comfortly write your sourcecode please install the asciidoctor Eclipse integration or the stand-alone application. Please visit link:https://asciidoctor.org/[The asciidoctor website] to download. 
+
+===== Google Cloud SDK
+
+image::images/google_cloud.png[Google Cloud]
+
+It might be the case that you will partly or completely work on public cloud resources inside of the Google Cloud. In that case, you have to install the gcloud-sdk.
+ 
+====== Installation
+To install the gcloud sdk, you can use chocolatey again by executing the following command:
+[source,Powershell]
+choco install gcloudsdk
+
+====== Update
+[source,Powershell]
+choco upgrade gcloudsdk
+
+You'll have to initialize your gcloud installation, to learn how to do this, please visit link:https://cloud.google.com/sdk/docs/initializing[Gcloud Documentation]. 
+
+===== Azure Command Line Interface
+
+image::images/azure_cloud.png[Microsoft Azure]
+
+It might be the case that you will partly or completely work on public cloud resources inside of Microsoft's Azure Cloud. In that case, you have to install the azure-cli on order to communicate with the Azure environment.
+
+====== Installation
+[source,Powershell]
+choco install azure-cli
+
+====== Update
+[source,Powershell]
+choco upgrade azure-cli
+
+After the installation is completed, i suggest to have a look to the link:https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest[Getting started with Azre] documetnation.
+
+===== IBM Cloud
+
+====== Installation
+[source, Powershell]
+Set-ExecutionPolicy Unrestricted; iex(New-Object Net.WebClient).DownloadString('http://ibm.biz/idt-win-installer')
+
+[source, bash]
+curl -sL https://ibm.biz/idt-installer | bash
+
+
+
+ibmcloud login
+
+ibmcloud target -g <ressourcengruppenname>
+
+ibmcloud ks region-set
+
+ibmcloud ks clusters
+
+ibmcloud ks cluster-config <clustername_oder_-id>

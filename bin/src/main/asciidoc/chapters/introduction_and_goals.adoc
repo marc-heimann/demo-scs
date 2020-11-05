@@ -1,3 +1,89 @@
+[[section-introduction-and-goals]]
+== Introduction and Goals
+
+This documentation describes the purpose and the design of the Vanderlande Self Contained System demonstration implementation.
+It is foreseen to give teams guidance in creating Self-contained system on their own. 
+
+=== Purpose of this SCS implementation is to demonstrate: 
+
+[ditaa]
+----
+/-------------------\   /-------------------\   /-------------------\ 
+|cA02               |   |cA02               |   |cA02               |
+| Configuration of  |   | Maven             |   | Asciidoc          |
+| Spring boot       |   | configuration     |   | documentation     |
+| applications      |   |                   |   |                   |
+| for SCS           |   |                   |   |                   |
+|                   |   |                   |   |                   |
+\-------------------/   \-------------------/   \-------------------/
+
+/-------------------\   /-------------------\   /-------------------\ 
+|cA02               |   |cA02               |   |cA02               |
+| Dockerization of  |   | Jenkinsfile       |   | HATEOAS           |
+| Spring boot       |   | Pipeline setup    |   | Rest interfaces   |
+| applications      |   | for CI/CD         |   | with Spring boot  |
+|                   |   |                   |   |                   |
+\-------------------/   \-------------------/   \-------------------/
+
+/-------------------\   /-------------------\   /-------------------\ 
+|cA02               |   |cA02               |   |cA02               |
+| Creating          |   | Implementing      |   | Executing         |
+| Kubernetes Helm   |   | Specification by  |   | Specification by  |
+| Charts            |   | Example Tests     |   | Example Tests     |
+|                   |   |                   |   |                   |
+\-------------------/   \-------------------/   \-------------------/
+----
+
+
+=== Requirements Overview
+
+The requirements of the macro architecture can be defined with the help of the issues, which are related to LFW. Therefore the requirements will be derived by the issues, the LFW approach does not solve today. Those issue-requirement-deflection can be found in the table below. Detailed descriptions of the single issues and why they actually are issues can be found in the following sub-chapters.
+
+[options="header", cols="1,2"]
+|===
+|Circumstance
+|Requirement
+
+|Person at Vanderlande are not very familiar with Spring Boot
+|Application shall introduce Spring boot to Vanderlande employee
+
+|Maven is used at Vanderlande already since years
+|This application shall demonstrate, how to configure Maven to build Spring based Self-contained systems
+
+|Documentation shall be more in line with the corresponding source code 
+|This application shows how to implement the documentation of a software component using Asciidoc/Asciidoctor and hot to host it with the Software application itself
+
+|Software containerization is solely used for testing of applications at Vanderlande right now
+|This demo application shall teach the Vanderlande employee how to configure their software project in a way that it provides docker functionalities. It provides a Dockerfile that illustrates how to deal with containerization
+
+|Jenkins is already used at Vanderlande
+|This implementation explains, how to create a Jenkinsfile that contains the whole build chain for a Jenkins build pipeline
+
+|Vanderlande uses REST based WebServices already today
+|Application shows the power of Spring in generating HATEOAS (HAL level 3) based REST applications with a minimum of effort to spent on it
+
+|Vanderlande employee have very less knowledge about Kubernetes
+|This application shows how to create a Kubernetes Helm chart that can be used to deploy the application into a Kubernetes cluster with ease 
+|===
+
+
+==== Getting familiar with Spring Boot
+
+image::images/spring-boot.png[Spring boot is a product of the Pivotal Software inc.]
+To get more familiar with the concepts of Spring boot, please visit https://spring.io/projects/spring-boot
+
+
+
+==== Configuration of Maven for SCS including asciidoc, Jenkins and Docker
+
+image::images/apache-maven.png[Maven is being maintained by the apache goup]
+
+This section shows the whole maven configuration of the project. Parts of it will be 
+describes in detail in the coming sections of this documentation.
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -10,7 +96,7 @@
 	
 	<groupId>com.vanderlande</groupId>
 	<artifactId>DemoSCS</artifactId>	
-	<version>0.0.103-SNAPSHOT</version>
+	<version>0.0.59-SNAPSHOT</version>
 	<name>DemoSCS</name>
 	<description>Demo project to demonstrate CloudNative Computing</description>
 
@@ -50,11 +136,8 @@
     	<chartName>demo-scs</chartName>
     	<skipSnapshotChart>false</skipSnapshotChart>
 
-    	<chartmuseumUrl>http://51.105.96.95:8080</chartmuseumUrl>
-    	<helmVersion>2.16.1</helmVersion>
-    	<chartRepoUsername>vanderlande</chartRepoUsername>
-    	<chartRepoPassword>vanderlande</chartRepoPassword>
-    	<helmPluginVersion>2.4.1</helmPluginVersion>
+    	<chartmuseumUrl>http://51.105.96.95:8080/</chartmuseumUrl>
+    	<helmVersion>3.0.0</helmVersion>
 	</properties>
 
 	<dependencies>
@@ -247,124 +330,18 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>2.5.3</version>				
 				</plugin>
-				<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-clean-plugin</artifactId>
-	 				<configuration>
-		                <filesets>
-		                    <fileset>
-		                        <directory>src/main/resources/static/documentation</directory>	                                            
-		                        <followSymlinks>false</followSymlinks>
-		                    </fileset>
-		                </filesets>
-	            	</configuration>			
-			    </plugin>
-				<plugin>
-		        <groupId>org.asciidoctor</groupId>
-		        <artifactId>asciidoctor-maven-plugin</artifactId>
-		        <version>${asciidoctor.maven-plugin.version}</version>
-		        <dependencies>
-		        	<dependency>
-		        		<groupId>org.asciidoctor</groupId>
-      					<artifactId>asciidoctorj-diagram</artifactId>
-      					<version>${asciidoctorj.diagram.version}</version>
-		        	</dependency>
-		        	<dependency>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctorj-pdf</artifactId>
-                        <version>${asciidoctorj.pdf.version}</version>
-                    </dependency>                   
-		        </dependencies>
-		        <configuration>
-		        	<sourceDirectory>${sourceDirectory}</sourceDirectory>
-        			<outputDirectory>${outputDirectory}</outputDirectory>
-		        	<attributes>
-		        		<!-- Uses the <img src="data:image/png;base64> syntax for diagrams -->
-		        		<data-uri />
-		        		<!-- Allows access to remote files (eg. code on external GitHub) -->		        		
-		        		<!-- imagesdir>./images</imagesdir-->
-                        <allow-uri-read>true</allow-uri-read>
-		        	</attributes>
-		        	<requires>
-		        		<require>asciidoctor-diagram</require>
-		        	</requires>
-		        </configuration>        
-				<executions>
-                    <execution>                    
-                        <id>generate-html-doc</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>html5</backend>
-                        </configuration>
-                    </execution>                     
- 					<execution>
-                        <id>generate-pdf-doc</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>pdf</backend>                    
-                            <sourceHighlighter>coderay</sourceHighlighter>
-                            <attributes>
-                                <icons>font</icons>
-                                <pagenums />
-                                <toc />
-                                <idprefix />
-                                <idseparator>-</idseparator>
-                            </attributes>
-                        </configuration>
-                    </execution>    
-                </executions>		        
-		    </plugin>
-		    <plugin>
-	    		<groupId>org.sahli.asciidoc.confluence.publisher</groupId>
-	    		<artifactId>asciidoc-confluence-publisher-maven-plugin</artifactId>
-	    		<version>${org.sahli.asciidoc.confluence.publisher.version}</version>
-	    		<configuration>
-		        	<asciidocRootFolder>${asciidocRootFolder}</asciidocRootFolder>
-		        	<sourceEncoding>UTF-8</sourceEncoding>
-		        	<rootConfluenceUrl>${rootConfluenceUrl}</rootConfluenceUrl>
-		        	<spaceKey>${confluence.spaceKey}</spaceKey>
-		        	<ancestorId>${confluence.documentation.ancestorId}</ancestorId>
-		        	<username>${confluence.publisherUserName}</username>
-		        	<password>${confluence.publisherPassword}</password>
-		        	<pageTitlePrefix xml:space="preserve" />
-		        	<publishingStrategy>${confluence.publishingStrategy}</publishingStrategy>
-		        	<pageTitleSuffix xml:space="preserve"> [${project.version}]</pageTitleSuffix>
-		        	<versionMessage>Version ${project.version}</versionMessage>
-			        	<attributes>
-			            	<version>${project.version}</version>
-			            	<someOtherKey>value</someOtherKey>
-			        	</attributes>
-	    		</configuration>
-	    		<executions>
-                	<execution>
-				        <id>publish-documentation</id>
-				        <phase>generate-resources</phase>
-				        <goals>
-				            <goal>publish</goal>
-				        </goals>
-				    </execution>
-			    </executions>  
-	    	</plugin>
 	  			<plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
-			      <version>${helmPluginVersion}</version>
+			      <version>2.4.1</version>
 			      <configuration>
-			        <chartRepoUsername>${chartRepoUsername}</chartRepoUsername>
-			        <chartRepoPassword>${chartRepoPassword}</chartRepoPassword>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
 			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
 			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
-			        <valuesFile>target/helm/${chartName}/values.yaml</valuesFile>
+			        <valuesFile>src/test/helm/${chartName}/values.yaml</valuesFile>
 			      </configuration>
 			      <executions>
 			        <execution>
@@ -409,21 +386,43 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>					    
+			</plugin>
+			<plugin>
+		        <groupId>org.asciidoctor</groupId>
+		        <artifactId>asciidoctor-maven-plugin</artifactId>
+		        <version>${asciidoctor.maven-plugin.version}</version>
+		        <dependencies>
+		        	<dependency>
+		        		<groupId>org.asciidoctor</groupId>
+      					<artifactId>asciidoctorj-diagram</artifactId>
+      					<version>${asciidoctorj.diagram.version}</version>
+		        	</dependency>
+		        	<dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>                   
+		        </dependencies>
+		        <configuration>
+		        	<sourceDirectory>${sourceDirectory}</sourceDirectory>
+        			<outputDirectory>${outputDirectory}</outputDirectory>
+		        	<requires>
+		        		<require>asciidoctor-diagram</require>
+		        	</requires>
+		        </configuration>	        
+		    </plugin>		    
 		    <plugin>
 			      <groupId>com.deviceinsight.helm</groupId>
 			      <artifactId>helm-maven-plugin</artifactId>
-			      <version>${helmPluginVersion}</version>
+			      <version>2.4.1</version>
 			      <configuration>
-			      	<chartRepoUsername>${chartRepoUsername}</chartRepoUsername>
-			        <chartRepoPassword>${chartRepoPassword}</chartRepoPassword>
 			        <chartName>${chartName}</chartName>
 			        <helmGroupId>com.deviceinsight.helm</helmGroupId>		       
 			        <chartRepoUrl>${chartmuseumUrl}</chartRepoUrl>
 			        <helmVersion>${helmVersion}</helmVersion>
 			        <skipSnapshots>${skipSnapshotChart}</skipSnapshots>
 			        <strictLint>true</strictLint>
-			        <valuesFile>src/main/helm/${chartName}/values.yaml</valuesFile>
+			        <valuesFile>src/test/helm/${chartName}/values.yaml</valuesFile>
 			      </configuration>
 			      <executions>
 			        <execution>
@@ -716,23 +715,25 @@
 	      </plugins>    
 	    </build>
 	  </profile>
-	</profiles> 	
+	</profiles>
+
+ 	
 
 	<repositories>
 	  <repository>
 	    <id>maven-group</id>
-	    <url>http://52.157.237.13:8080/repository/maven-group/</url>
+	    <url>http://52.143.0.103:8080/repository/maven-group/</url>
 	  </repository>
 	</repositories>	
 
 	<distributionManagement>
 	  <snapshotRepository>
 	    <id>nexus-snapshots</id>
-	    <url>http://52.157.237.13:8080/repository/maven-snapshots/</url>
+	    <url>http://52.143.0.103:8080/repository/maven-snapshots/</url>
 	  </snapshotRepository>
 	  <repository>
 	    <id>nexus-releases</id>
-	    <url>http://52.157.237.13:8080/repository/maven-releases/</url>
+	    <url>http://52.143.0.103:8080/repository/maven-releases/</url>
 	  </repository>
 	</distributionManagement>
 	
@@ -742,9 +743,123 @@
 	</organization>
 	
 	<scm>		
-		<developerConnection>scm:git:git@github.com:marc-heimann/demo-scs.git</developerConnection>
-		<connection>scm:git:git@github.com:marc-heimann/demo-scs.git</connection>
+		<developerConnection>scm:git:https://github.com:marc-heimann/demo-scs.git</developerConnection>
+		<connection>scm:git:https://github.com:marc-heimann/demo-scs.git</connection>
 		<tag>HEAD</tag>
 		<url>http://github.com</url>
 	</scm>
 </project>
+----
+
+==== Documentation with Asciidoc and Asciidoctor
+The approach to build the documentation of a self contained system using a simple markup language leads to the circumstance, that you are able to 
+make the documentation part of the source code of an application.
+
+Goal is to get rid of third party tools an engineer has to work with besides his IDE.
+Another important goal is to make documentation a concern of the development team and to make it generatable.
+
+====== Adding Asciidoctor maven plug-in and Asciidoctorj-diagram to the project
+[source, xml]
+----
+
+<plugin>
+    <groupId>org.asciidoctor</groupId>
+    <artifactId>asciidoctor-maven-plugin</artifactId>
+    <version>${asciidoctor.maven-plugin.version}</version>
+    <dependencies>
+    	<dependency>
+    		<groupId>org.asciidoctor</groupId>
+			<artifactId>asciidoctorj-diagram</artifactId>
+			<version>${asciidoctorj.diagram.version}</version>
+    	</dependency>
+    	<dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj-pdf</artifactId>
+            <version>${asciidoctorj.pdf.version}</version>
+        </dependency>
+    </dependencies>
+    <configuration>
+    	<sourceDirectory>${sourceDirectory}</sourceDirectory>
+		<outputDirectory>${outputDirectory}</outputDirectory>
+    	<attributes>
+    		<!-- Uses the <img src="data:image/png;base64> syntax for diagrams -->
+    		<data-uri/>
+    		<!-- Allows access to remote files (eg. code on external GitHub) -->		        		
+    		<imagesdir>./images</imagesdir>
+            <allow-uri-read>true</allow-uri-read>
+    	</attributes>
+    	<requires>
+    		<require>asciidoctor-diagram</require>
+    	</requires>
+    </configuration>        
+	<executions>
+        <execution>
+            <id>generate-html-doc</id>
+            <phase>generate-resources</phase>
+            <goals>
+                <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+                <backend>html5</backend>
+            </configuration>
+        </execution>                     
+		<execution>
+            <id>generate-pdf-doc</id>
+            <phase>generate-resources</phase>
+            <goals>
+                <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+                <backend>pdf</backend>                    
+                <sourceHighlighter>coderay</sourceHighlighter>
+                <attributes>
+                    <icons>font</icons>
+                    <pagenums/>
+                    <toc/>
+                    <idprefix/>
+                    <idseparator>-</idseparator>
+                </attributes>
+            </configuration>
+        </execution>      
+    </executions>		        
+</plugin>				
+
+----
+
+===== Adding Lifecycle Mapping to the pom
+
+This Snippet shows, how to add the lifecycle mapping of the asciidoc process
+
+[source, xml]
+
+----
+
+<configuration>
+	<lifecycleMappingMetadata>
+		<pluginExecutions>
+			<pluginExecution>
+				<pluginExecutionFilter>
+					<groupId>
+						org.asciidoctor
+					</groupId>
+					<artifactId>
+						asciidoctor-maven-plugin
+					</artifactId>
+					<versionRange>
+						[${asciidoctor.maven-plugin.version},)
+					</versionRange>
+					<goals>
+						<goal>
+							process-asciidoc
+						</goal>
+					</goals>
+				</pluginExecutionFilter>
+				<action>
+					<ignore></ignore>
+				</action>
+			</pluginExecution>
+		</pluginExecutions>
+	</lifecycleMappingMetadata>
+</configuration>
+
+----

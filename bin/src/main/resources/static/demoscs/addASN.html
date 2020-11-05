@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Vanderlande SCS Demo</title>
+	<link rel="stylesheet" href="./css/main.css">	
+</head>
+
+<body id="addASNBody" class="light">
+
+	<main class="container">
+
+	</main>
+	<table frame=border rules =all id= "outputTable" class="outputTable">
+	  <tr>
+	    <th colspan="1" scope="colgroup">purchaseOrderNumber</th>
+	    <th colspan="1" scope="colgroup">shipNoticeNumber</th>
+	    <th colspan="6" scope="colgroup">destinationLocation</th>
+	  </tr>
+	  <tr>
+	    <th scope="col"></th>
+	    <th scope="col"></th>
+	    <th scope="col">country</th>
+	    <th scope="col">state</th>
+	    <th scope="col">city</th>
+	    <th scope="col">street</th>
+	    <th scope="col">number</th>
+	    <th scope="col">zipCode</th>
+	  </tr>
+	  <tr>
+	    <td scope="col">
+	    	<input class="asnInfo" type="number" id="purOrdNum">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="number" id="shipNotNum">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo"  type="text" id="destCountry">
+	    </td>
+	    <td scope="col">	
+	    	<input class="asnInfo" type="text" id="destState">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="text" id="destCity">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="text" id="destStreet">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="text" id="destNumber" style="width: 50px;">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="text" id="destZip" style="width: 90px;">
+	    </td>
+	  </tr>
+	  <tr>
+	  	<th colspan="2" scope="colgroup">supplier</th>
+	    <th colspan="1" scope="colgroup">shipDate</th>
+	    <th colspan="1" scope="colgroup">deliveryDate</th>
+	    <th colspan="1" scope="colgroup">skuIds</th>
+	  </tr>
+	  <tr>
+	  	<th scope="col">id</th>
+	    <th scope="col">name</th>
+	    <th scope="col"></th>
+	    <th scope="col"></th>
+	    <th scope="col"></th>
+	  </tr>
+	  <tr>
+	  	<td scope="col">
+	    	<input class="asnInfo" type="number" id="supId">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="text" id="supName">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="date" id="shipDate">
+	    	<br>
+	    	<input class="asnInfo" type="time" id="shipTime">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="date" id="delDate">
+	    	<br>
+	    	<input class="asnInfo" type="time" id="delTime">
+	    </td>
+	    <td scope="col">
+	    	<input class="asnInfo" type="text" id="skuIds">
+	    </td>
+	  </tr>
+	</table>
+	<br>
+	<button type="button" id="addButton">Add</button>
+	<label for="addButton" id="errorLabel"></label>
+</body>
+<script src="./js/push.js" id="push"></script>
+</html>

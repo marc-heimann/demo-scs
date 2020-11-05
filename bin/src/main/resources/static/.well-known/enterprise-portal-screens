@@ -1,0 +1,16 @@
+{
+	"type":"enterprise-portal",
+	"menuItemKey":"asn", 
+	"screens": [
+		{ 
+			"name": "AsnOverview",
+			"menuItemKey": "asn-overview",
+			"URL": "/demoscs/viewASNs.html" 
+		},
+		{ 
+			"name": "AsnAdd",
+			"menuItemKey": "asn-add",
+			"URL": "/demoscs/addASN.html" 
+		}			
+	]
+}
